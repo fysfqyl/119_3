@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			p {
+				width: 400px;
+				padding: 20px;
+				border: 10px solid #ccc;
+				background: #FFC;
+				font-size: 16px;
+				font-family: 微软雅黑;
+			}
+			span {
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" />
+		<input type="button" value="查找" />
+		<input type="text" />
+		<input type="button" value="替换" />
+		<p>桂林电子科技大学坐落......最高科学技术奖获得者......</p>
+	</body>
+</html>
+<script>
+	var aInp = document.getElementsByTagName('input');
+	var oP = document.getElementsByTagName('p')[0];
+	aInp[1].onclick = function () {
+		var str = aInp[0].value;
+		if(!str)return;
+		var aSch = oP.innerHTML.split(str);
+		if (aSch.length > 1) {
+			oP.innerHTML = aSch.join ('<span>'+str+'</span>');
+		}else {
+			alert ("没有你要查找的内容");
+		}
+	};
+	aInp[3].onclick = function() {
+		var str = aInp[0].value;
+		var newStr = aInp[2].value;
+		if (!str)return;
+		var aSch = oP.innerHTML.split(str);
+		if (aSch.length > 1) {
+			oP.innerHTML = aSch.join('<span>' +newStr+ '</span>');
+		}else {
+			alert ("没有你要替换的内容");
+		}
+	};
+</script>
